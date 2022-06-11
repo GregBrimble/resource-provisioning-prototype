@@ -1,0 +1,20 @@
+{
+  "name": "pre-build-checks",
+  "module": "true",
+  "scripts": {
+    "build": "esbuild --bundle --platform=node --target=node16 --outfile=dist/index.js --external:esbuild ./src",
+    "prestart": "npm run build",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "glob": "^8.0.3",
+    "glob-promise": "^4.2.2",
+    "js-yaml": "^4.1.0",
+    "zod": "^3.17.3"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.2.0",
+    "@types/js-yaml": "^4.0.5",
+    "esbuild": "^0.14.43"
+  }
+}

@@ -1,0 +1,4 @@
+require:
+  - use: "@cloudflare/pages-require-kv-namespace"
+    config:
+      binding: FOO
