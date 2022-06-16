@@ -1,5 +1,5 @@
 {
-  "name": "@cloudflare/pages-require-kv-namespace",
+  "name": "@cloudflare/pages-require-workers-service",
   "version": "1.0.0",
   "scripts": {
     "build": "npx wrangler pages functions build --fallback-service='' --outfile=provisioner.mjs"

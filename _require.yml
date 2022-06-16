@@ -1,4 +1,31 @@
-require:
+description: |
+  A template for a personal blog.
+
+  [Example](https://example.com/)
+  [GitHub](https://github.com/GregBrimble/blog)
+
+requirements:
   - use: "@cloudflare/pages-require-kv-namespace"
+    description: Needed to blog posts
     config:
       binding: FOO
+
+  - use: "@cloudflare/pages-require-worker"
+    description: sudo make me a worker
+    id: make_a_worker
+    config:
+      worker: ./workers/my-awesome-worker-which-includes-a-User-DO
+
+  - use: "@cloudflare/pages-require-durable-object-namespace"
+    description: sudo make me a binding
+    config:
+      binding: USER
+      service: ${{ requirements.make_a_worker.state.name }}
+      class: User
+
+  - use: "@cloudflare/pages-require-service-binding"
+    description: sudo make me a binding
+    config:
+      binding: AUTH
+      service: ${{ requirements.make_a_worker.state.name }}
+      environment: ${{ requirements.make_a_worker.state.environment }}

@@ -1,0 +1,7 @@
+name = "provisioning-service"
+compatibility_date = "2022-06-12"
+
+[durable_objects]
+bindings = [
+  { name = "DO", class_name = "DO" }
+]
